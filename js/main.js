@@ -1,6 +1,5 @@
 jQuery(document).ready(function(){
-	var intro = $('.cd-intro-block'),
-		projectsContainer = $('.cd-projects-wrapper'),
+	var projectsContainer = $('.cd-projects-wrapper'),
 		projectsSlider = projectsContainer.children('.cd-slider'),
 		singleProjectContent = $('.cd-project-content'),
 		sliderNav = $('.cd-slider-navigation');
@@ -17,24 +16,11 @@ jQuery(document).ready(function(){
 		}
 	});
 
-	//show the projects slider if user clicks the show-projects button
-	intro.on('click', 'a[data-action="show-projects"]', function(event) {
-		event.preventDefault();
-		intro.addClass('projects-visible');
-		projectsContainer.addClass('projects-visible');
-		//animate single project - entrance animation
-		setTimeout(function(){
-			showProjectPreview(projectsSlider.children('li').eq(0));
-		}, 200);
-	});
-
-	intro.on('click', function(event) {
-		//projects slider is visible - hide slider and show the intro panel
-		if( intro.hasClass('projects-visible') && !$(event.target).is('a[data-action="show-projects"]') ) {
-			intro.removeClass('projects-visible');
-			projectsContainer.removeClass('projects-visible');
-		}
-	});
+	projectsContainer.addClass('projects-visible');
+	//animate single project - entrance animation
+	setTimeout(function(){
+		showProjectPreview(projectsSlider.children('li').eq(0));
+	}, 200);
 
 	//select a single project - open project-content panel
 	projectsContainer.on('click', '.cd-slider a', function(event) {
@@ -66,9 +52,9 @@ jQuery(document).ready(function(){
 	//go to next/pre slide - keyboard navigation
 	$(document).keyup(function(event){
 		var mq = checkMQ();
-		if(event.which=='37' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
+		if(event.which=='37' && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
 			prevSides(projectsSlider);
-		} else if( event.which=='39' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
+		} else if( event.which=='39' && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
 			nextSides(projectsSlider);
 		} else if(event.which=='27' && singleProjectContent.hasClass('is-visible')) {
 			singleProjectContent.removeClass('is-visible');
