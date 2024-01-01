@@ -200,7 +200,7 @@ figcaption {
 }
 
 .image-logo {
-  height: 1.2em;
+  height: 13em;
 }
 
 .brand {
@@ -427,7 +427,7 @@ figcaption {
   z-index: 700;
   mix-blend-mode: difference;
   position: fixed;
-  top: 1.52em;
+  top: -4em;
   bottom: auto;
   left: 1.52em;
   right: auto;
