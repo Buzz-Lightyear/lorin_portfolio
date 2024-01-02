@@ -15,7 +15,7 @@
     <style>
         table {
             width: 75%;
-            margin: 10%;
+            margin: 5%;
             border-collapse: collapse;
         }
 
@@ -33,7 +33,8 @@
         }
 
         #slideshow-container {
-            max-width: 82%;
+            max-width: 60%;
+            max-height: 60%;
             position: relative;
             margin: auto;
             text-align: center;
@@ -86,7 +87,7 @@
         }
 
         #slideshow-container h4 {
-            margin-bottom: 5%;
+            margin-bottom: 2%;
         }
     </style>
 </head>
@@ -144,27 +145,18 @@
                     <p>The webpage, created by Jose Contreras, was selected to be featured on Adobe Muse’s “Site of the Day” in July 2015.</p>
                 </td>
             </tr>
-            <tr>
-                <td class="image-cell">
-                    <div id="slideshow-container">
-                        <div class="mySlides">
-                            <img src="images/cuba8.png" alt="Cuba Creatives">
-                        </div>
-                        <div class="mySlides">
-                            <img src="images/cuba9.png" alt="Cuba Creatives">
-                        </div>
-                        <div class="mySlides">
-                            <img src="images/cuba10.png" alt="Cuba Creatives">
-                        </div>
-                        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-                        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-                    </div>
-                </td>
-                <td class="text-cell">
-                    <p>Here's a collection of some of my other work as it pertains to this project.</p>
-                </td>
-            </tr>
         </table>
+        <div id="slideshow-container">
+            <h4>Here's a collection of some of my other work as it pertains to this project:</h4>
+            <div class="mySlides">
+                <img src="images/cuba8.png" alt="Cuba Creatives">
+            </div>
+            <div class="mySlides">
+                <img src="images/cuba9.png" alt="Cuba Creatives">
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
     </div>
     <script>
         let slideIndex = 1; // Start with the first image
