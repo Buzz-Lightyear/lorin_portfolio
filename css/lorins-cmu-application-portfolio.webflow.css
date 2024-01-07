@@ -389,7 +389,7 @@ figcaption {
   z-index: 30;
   grid-row-gap: .12em;
   -webkit-backdrop-filter: blur(40px);
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(0.5px);
   background-color: rgba(45, 44, 45, .5);
   border-radius: .76em;
   flex-direction: column;
@@ -399,15 +399,20 @@ figcaption {
   display: flex;
   position: absolute;
   top: auto;
-  bottom: .95em;
-  left: .95em;
+  bottom: 0.1%;
+  left: auto;
   right: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
 }
 
 .subheading-project {
-  color: rgba(230, 230, 230, .5);
+  color: whitesmoke;
   font-size: .82em;
   line-height: 1.4em;
+  font-weight: lighter;
 }
 
 .image-hover {
