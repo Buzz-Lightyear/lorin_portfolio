@@ -388,7 +388,7 @@ figcaption {
 
 /* Show the block-project-text div on hover */
 .lightbox-link:hover .block-project-text {
-  display: block;
+  display: flex;
 }
 
 .block-project-text {
@@ -396,16 +396,16 @@ figcaption {
   grid-row-gap: .12em;
   -webkit-backdrop-filter: blur(40px);
   backdrop-filter: blur(0.5px);
-  background-color: rgba(45, 44, 45, .5);
+  background-color: rgba(00, 00, 00, 0.5);
   border-radius: .56em;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: .9em 2.5em .9em 1.1em;
   display: none;
   position: absolute;
   top: auto;
-  bottom: 0.1%;
+  bottom: 0.0001%;
   left: auto;
   right: auto;
   height: 100%;
@@ -419,6 +419,7 @@ figcaption {
   font-size: .82em;
   line-height: 1.4em;
   font-weight: lighter;
+  text-align: center;
 }
 
 .image-hover {
