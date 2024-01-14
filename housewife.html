@@ -176,81 +176,82 @@
         <div id="slideshow-container" style="margin-bottom: 30px;">
             <h5 style="margin-bottom: 30px;">More Work From This Project:</h5>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries1.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries1.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries2.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries2.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries3.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries3.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries4.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries4.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries5.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries5.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries6.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries6.png" alt="Housewife Photo">
             </div>
              <div class="mySlides">
-                <img src="images/housewife/housewifeseries7.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries7.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries8.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries8.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries9.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries9.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries10.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries10.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries11.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries11.png" alt="Housewife Photo">
             </div>
             <div class="mySlides">
-                <img src="images/housewife/housewifeseries12.png" alt="New York Artists">
+                <img src="images/housewife/housewifeseries12.png" alt="Housewife Photo">
             </div>
             <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
             <a class="next" onclick="changeSlide(1)">&#10095;</a>
         </div>
     </div>
-    <script>
-        let slideIndex = 1; // Start with the first image
-        showSlides();
+      <script>
+        let slideshowIndex = 1;
 
-        function showSlides() {
-            const slides = document.getElementsByClassName("mySlides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+showSlides(slideshowIndex);
 
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
+function showSlides(n) {
+    const slides = document.getElementsByClassName("mySlides");
 
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2000); // Change slide every 2 seconds
-        }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
 
-        function changeSlide(n) {
-            slideIndex += n;
-            const slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {
+        slideshowIndex = 1;
+    }
 
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
+    if (n < 1) {
+        slideshowIndex = slides.length;
+    }
 
-            if (slideIndex < 1) {
-                slideIndex = slides.length;
-            }
+    slides[slideshowIndex - 1].style.display = "block";
+}
 
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+function changeSlide(n) {
+    slideshowIndex += n;
+    showSlides(slideshowIndex);
+    
+    // Check for circular behavior
+    if (slideshowIndex > document.getElementsByClassName("mySlides").length) {
+        slideshowIndex = 1;
+    }
 
-            slides[slideIndex - 1].style.display = "block";
-        }
+    if (slideshowIndex < 1) {
+        slideshowIndex = document.getElementsByClassName("mySlides").length;
+    }
+}
+
     </script>
 </body>
 </html>

@@ -524,44 +524,73 @@
         </div>
     </div>
     <script>
-        let slideshowIndex1 = 1;
-        let slideshowIndex2 = 1;
-        let slideshowIndex3 = 1;
+let slideshowIndex1 = 1;
+let slideshowIndex2 = 1;
+let slideshowIndex3 = 1;
 
-        showSlides(1, 'slideshow-container1');
-        showSlides(1, 'slideshow-container2');
-        showSlides(1, 'slideshow-container3');
+showSlides(slideshowIndex1, 'slideshow-container1');
+showSlides(slideshowIndex2, 'slideshow-container2');
+showSlides(slideshowIndex3, 'slideshow-container3');
 
-        function showSlides(n, containerId) {
-            const slides = document.getElementById(containerId).getElementsByClassName("mySlides");
+function showSlides(n, containerId) {
+    const slides = document.getElementById(containerId).getElementsByClassName("mySlides");
 
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
 
-            if (n > slides.length) {
-                n = 1;
-            }
+    if (n > slides.length) {
+        n = 1;
+    }
 
-            if (n < 1) {
-                n = slides.length;
-            }
+    if (n < 1) {
+        n = slides.length;
+    }
 
-            slides[n - 1].style.display = "block";
+    slides[n - 1].style.display = "block";
+}
+
+function changeSlide(n, containerId) {
+    if (containerId === 'slideshow-container1') {
+        slideshowIndex1 += n;
+        showSlides(slideshowIndex1, 'slideshow-container1');
+        
+        // Check for circular behavior
+        if (slideshowIndex1 > document.getElementById('slideshow-container1').getElementsByClassName("mySlides").length) {
+            slideshowIndex1 = 1;
         }
 
-        function changeSlide(n, containerId) {
-            if (containerId === 'slideshow-container1') {
-                slideshowIndex1 += n;
-                showSlides(slideshowIndex1, 'slideshow-container1');
-            } else if (containerId === 'slideshow-container2') {
-                slideshowIndex2 += n;
-                showSlides(slideshowIndex2, 'slideshow-container2');
-            } else if (containerId === 'slideshow-container3') {
-                slideshowIndex3 += n;
-                showSlides(slideshowIndex3, 'slideshow-container3');
-            }
+        if (slideshowIndex1 < 1) {
+            slideshowIndex1 = document.getElementById('slideshow-container1').getElementsByClassName("mySlides").length;
         }
+    } else if (containerId === 'slideshow-container2') {
+        slideshowIndex2 += n;
+        showSlides(slideshowIndex2, 'slideshow-container2');
+        
+        // Check for circular behavior
+        if (slideshowIndex2 > document.getElementById('slideshow-container2').getElementsByClassName("mySlides").length) {
+            slideshowIndex2 = 1;
+        }
+
+        if (slideshowIndex2 < 1) {
+            slideshowIndex2 = document.getElementById('slideshow-container2').getElementsByClassName("mySlides").length;
+        }
+    } else if (containerId === 'slideshow-container3') {
+        slideshowIndex3 += n;
+        showSlides(slideshowIndex3, 'slideshow-container3');
+        
+        // Check for circular behavior
+        if (slideshowIndex3 > document.getElementById('slideshow-container3').getElementsByClassName("mySlides").length) {
+            slideshowIndex3 = 1;
+        }
+
+        if (slideshowIndex3 < 1) {
+            slideshowIndex3 = document.getElementById('slideshow-container3').getElementsByClassName("mySlides").length;
+        }
+    }
+}
+
+
     </script>
 
 </body>

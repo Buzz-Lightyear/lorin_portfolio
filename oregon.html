@@ -225,12 +225,12 @@
             <a class="next" onclick="changeSlide(1, 'slideshow-container2')">&#10095;</a>
         </div>
     </div>
-    <script>
+      <script>
         let slideshowIndex1 = 1;
         let slideshowIndex2 = 1;
 
-        showSlides(1, 'slideshow-container1');
-        showSlides(1, 'slideshow-container2');
+        showSlides(slideshowIndex1, 'slideshow-container1');
+        showSlides(slideshowIndex2, 'slideshow-container2');
 
         function showSlides(n, containerId) {
             const slides = document.getElementById(containerId).getElementsByClassName("mySlides");
@@ -251,14 +251,35 @@
         }
 
         function changeSlide(n, containerId) {
+            let slides; // Declare slides variable here
+
             if (containerId === 'slideshow-container1') {
                 slideshowIndex1 += n;
-                showSlides(slideshowIndex1, 'slideshow-container1');
+                slides = document.getElementById('slideshow-container1').getElementsByClassName("mySlides");
+                showSlides(slideshowIndex1, 'slideshow-container1', slides);
             } else if (containerId === 'slideshow-container2') {
                 slideshowIndex2 += n;
-                showSlides(slideshowIndex2, 'slideshow-container2');
+                slides = document.getElementById('slideshow-container2').getElementsByClassName("mySlides");
+                showSlides(slideshowIndex2, 'slideshow-container2', slides);
             }
+            
+            // Check for circular behavior
+            if (slideshowIndex1 > slides.length) {
+                slideshowIndex1 = 1;
             }
+
+            if (slideshowIndex1 < 1) {
+                slideshowIndex1 = slides.length;
+            }
+
+            if (slideshowIndex2 > slides.length) {
+                slideshowIndex2 = 1;
+            }
+
+            if (slideshowIndex2 < 1) {
+                slideshowIndex2 = slides.length;
+            }
+        }
     </script>
 </body>
 </html>
