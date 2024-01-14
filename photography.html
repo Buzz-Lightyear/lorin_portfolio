@@ -40,12 +40,18 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .mySlides {
             display: none;
             width: 100%;
             height: auto;
+            flex: 0 0 100%;
+            position: relative;
         }
 
         .prev, .next {
@@ -61,11 +67,16 @@
         }
 
         .prev {
-            left: 180px;
+            left: 0;
         }
 
         .next {
-            right: 180px;
+            right: 0;
+        }
+
+        .prev, .next {
+            width: calc(50% - 620px); /* Adjust width to your preference */
+            box-sizing: border-box;
         }
 
         img {
