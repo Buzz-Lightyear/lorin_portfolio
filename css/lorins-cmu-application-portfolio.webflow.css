@@ -422,6 +422,33 @@ figcaption {
   text-align: center;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.back-button img {
+    width: 7%;
+    height: 7%;
+    margin-right: 5px;
+}
+
 .image-hover {
   z-index: 20;
   width: 100%;
