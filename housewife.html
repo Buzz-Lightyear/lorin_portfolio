@@ -40,12 +40,17 @@
             position: relative;
             margin: auto;
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
         .mySlides {
             display: none;
             width: 100%;
             height: auto;
+            flex: 0 0 100%;
         }
 
         img {
@@ -70,11 +75,11 @@
         }
 
         .prev {
-            left: 680px;
+            left: 0;
         }
 
         .next {
-            right: 680px;
+            right: 0;
         }
 
         #container {
@@ -173,7 +178,7 @@
                 </td>
             </tr>
         </table>
-        <div id="slideshow-container" style="margin-bottom: 30px;">
+        <div id="slideshow-container" style="margin-bottom: 30px; position: relative;">
             <h5 style="margin-bottom: 30px;">More Work From This Project:</h5>
             <div class="mySlides">
                 <img src="images/housewife/housewifeseries1.png" alt="Housewife Photo">
