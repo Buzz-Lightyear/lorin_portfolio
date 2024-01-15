@@ -133,15 +133,15 @@
                 </video>
                 </td>
                 <td class="text-cell">
-                <p><h5 class="large">LUMA INSTITUTE</h5><br/></p><p>Students of the LUMA Institute’s Human-Centered Design Thinking Practitioner Certification program were asked to complete a final project that utilized the design thinking tools learned throughout the course. I chose to explore the topic of grief by identifying problem spaces for grieving individuals and communities, and using design thinking to come up with creative solutions and tools for navigating grief.</p>
+                <p><h5 class="large">Heirloom</h5><br/></p><p>Students of the LUMA Institute’s Human-Centered Design Thinking Practitioner Certification program were asked to complete a final project that utilized the design thinking tools learned throughout the course. I chose to explore the topic of grief by identifying problem spaces for grieving individuals and communities, and using design thinking to come up with creative solutions and tools for navigating grief.</p>
             </td>
             </tr>
             <tr>
                 <td class="image-cell">
-                    <img src="images/luma/luma5.png" alt="luma">
+                    <img src="images/luma/luma5.png" alt="luma" id="luma5" onclick="openFullscreen('luma5')">
                 </td>
                 <td class="text-cell">
-                    <p><h5>PROBLEM SPACE</h5></p><br/><p>While navigating the problem space I used MURAL and other design thinking frameworks to identify pain points, opportunities, and potential solutions. I utilized a recipe compiled of the following practices:</p>
+                    <p>While navigating the problem space I used MURAL and other design thinking frameworks to identify pain points, opportunities, and potential solutions. I utilized a recipe compiled of the following practices:</p>
                 </td>
             </tr>
             <tr>
@@ -347,40 +347,62 @@
       <script>
         let slideshowIndex = 1;
 
-showSlides(slideshowIndex);
+        showSlides(slideshowIndex);
 
-function showSlides(n) {
-    const slides = document.getElementsByClassName("mySlides");
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("mySlides");
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
 
-    if (n > slides.length) {
-        slideshowIndex = 1;
-    }
+            if (n > slides.length) {
+                slideshowIndex = 1;
+            }
 
-    if (n < 1) {
-        slideshowIndex = slides.length;
-    }
+            if (n < 1) {
+                slideshowIndex = slides.length;
+            }
 
-    slides[slideshowIndex - 1].style.display = "block";
-}
+            slides[slideshowIndex - 1].style.display = "block";
+        }
 
-function changeSlide(n) {
-    slideshowIndex += n;
-    showSlides(slideshowIndex);
-    
-    // Check for circular behavior
-    if (slideshowIndex > document.getElementsByClassName("mySlides").length) {
-        slideshowIndex = 1;
-    }
+        function changeSlide(n) {
+            slideshowIndex += n;
+            showSlides(slideshowIndex);
+            
+            // Check for circular behavior
+            if (slideshowIndex > document.getElementsByClassName("mySlides").length) {
+                slideshowIndex = 1;
+            }
 
-    if (slideshowIndex < 1) {
-        slideshowIndex = document.getElementsByClassName("mySlides").length;
-    }
-}
+            if (slideshowIndex < 1) {
+                slideshowIndex = document.getElementsByClassName("mySlides").length;
+            }
+        }
 
+        function openFullscreen(imageId) {
+            var imgElement = document.getElementById(imageId);
+            
+            // Create a new element to display the fullscreen image
+            var fullscreenImg = document.createElement('img');
+            fullscreenImg.src = imgElement.src;
+            fullscreenImg.alt = imgElement.alt;
+            fullscreenImg.classList.add('fullscreen-img');
+
+            // Append the fullscreen image to the body
+            document.body.appendChild(fullscreenImg);
+
+            // Add a click event listener to close the fullscreen image
+            fullscreenImg.addEventListener('click', closeFullscreen);
+        }
+
+        function closeFullscreen() {
+            var fullscreenImg = document.querySelector('.fullscreen-img');
+            
+            // Remove the fullscreen image element from the body
+            fullscreenImg.parentNode.removeChild(fullscreenImg);
+        }
     </script>
 </body>
 </html>
