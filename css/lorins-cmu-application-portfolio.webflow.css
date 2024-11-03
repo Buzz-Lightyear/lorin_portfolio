@@ -385,21 +385,27 @@ figcaption {
   border-radius: .94em;
 }
 
+
+/* Show the block-project-text div on hover */
+.lightbox-link:hover .block-project-text {
+  display: flex;
+}
+
 .block-project-text {
   z-index: 30;
   grid-row-gap: .12em;
   -webkit-backdrop-filter: blur(40px);
   backdrop-filter: blur(0.5px);
-  background-color: rgba(45, 44, 45, .5);
+  background-color: rgba(00, 00, 00, 0.5);
   border-radius: .56em;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: .9em 2.5em .9em 1.1em;
-  display: flex;
+  display: none;
   position: absolute;
   top: auto;
-  bottom: 0.1%;
+  bottom: 0.0001%;
   left: auto;
   right: auto;
   height: 100%;
@@ -413,6 +419,46 @@ figcaption {
   font-size: .82em;
   line-height: 1.4em;
   font-weight: lighter;
+  text-align: center;
+}
+
+.fullscreen-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.9); /* Optional overlay color */
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+}
+
+.back-button {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.back-button img {
+    width: 7%;
+    height: 7%;
+    margin-right: 5px;
 }
 
 .image-hover {
